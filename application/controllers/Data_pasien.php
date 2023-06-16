@@ -78,9 +78,9 @@ class Data_pasien extends CI_Controller {
 
 				$nextID = str_pad($lastNum+1,3, 0 ,STR_PAD_LEFT);//menambahkan angka yang baru diambil dari variable $lastNum
 
-				$id = "RM-".$nextID;//angka digabungkan dengan "RM-"
+				$id = $nextID;//angka digabungkan dengan "RM-"
 			} else {
-				$id = "RM-001";
+				$id = "001";
 			}
 
 			$data = array(
