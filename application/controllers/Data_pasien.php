@@ -69,6 +69,7 @@ class Data_pasien extends CI_Controller {
 		}else{
 			$jumlah = $this->pasien_model->get_pasien(); //Ambil Data
 			$row = $jumlah->num_rows(); // Ambil Jumlah Data
+			var_dump($row);
 			if($row > 0){ // Dicek apakah data kosong jika tidak id otomatis "RM-001"
 				foreach($jumlah->result_array() as $a){
 					$lastId = $a['no_rm'];//PK diambil lalu dimasukan ke variable lastId
@@ -76,11 +77,11 @@ class Data_pasien extends CI_Controller {
 
 				$lastNum = substr($lastId,3);//mengambil angka terakhir
 
-				$nextID = str_pad($lastNum+1,3, 0 ,STR_PAD_LEFT);//menambahkan angka yang baru diambil dari variable $lastNum
+				$nextID = str_pad(intval($lastNum) + 1,6, 0 ,STR_PAD_LEFT);//menambahkan angka yang baru diambil dari variable $lastNum
 
 				$id = $nextID;//angka digabungkan dengan "RM-"
 			} else {
-				$id = "001";
+				$id = "000001";
 			}
 
 			$data = array(

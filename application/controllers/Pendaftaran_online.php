@@ -61,6 +61,7 @@ class Pendaftaran_online extends CI_Controller {
 
     public function cetakBukti(){
         $latestNomor = $this->pendaftaran_model->getLatestNomor();
+        // var_dump(($latestNomor));
         $nextNomor = $latestNomor + 1;
         $no_rm = $this->input->post('no_rm');
         $nama = $this->db->get_where('tbpasien', ['no_rm' => $no_rm])->row_array();
